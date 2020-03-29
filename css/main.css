@@ -1,0 +1,31 @@
+.nav-bar {
+    background: rgb(207, 231, 250);
+    /* Old browsers */
+    background: -moz-linear-gradient(top, rgb(207, 231, 250) 0%, rgb(99, 147, 193) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgb(207, 231, 250) 0%, rgb(99, 147, 193) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgb(207, 231, 250) 0%, rgb(99, 147, 193) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#cfe7fa', endColorstr='#6393c1', GradientType=0);
+    /* IE6-9 */
+}
+
+.product-image {
+    width: 100 px;
+    height: 100 px;
+    display: inline;
+    position: relative;
+    float: left;
+    margin-left: 20px;
+    border: solid;
+}
+
+.product-info {
+    width: 100 px;
+    height: 100 px;
+    display: inline;
+    position: relative;
+    float: left;
+    margin-right: 20px;
+}

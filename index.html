@@ -4,19 +4,53 @@
 <head>
     <meta charset="utf-8">
     <title>VUE-JS projects. Lessons</title>
-
+    <link rel="stylesheet" href="CSS\main.css">
 </head>
 
 <body>
-    <div id="app">
-        <h1>{{ message }}</h1>
-        <input type="text" v-model="message">
+    <div class="nav-bar">
+        <p>TEst on VUE JS</p>
     </div>
 
-    <div id="app1">
-        <h1>{{ message1 }}</h1>
-        <input type="text" v-model="message1">
+    <div id="app">
+        <div class="product-info">
+            <h1>{{ productName }}</h1>
+            <a :href="href">This is an anchorHref</a>
+            <p v-if="inventory>10">In Stock</p>
+            <p v-else-if="inventory<=10 && inventory>0">Almost sold out!</p>
+            <p v-else>Out of Stock</p>
+            <span v-show='OnSale'>On Sale!</span>
+            <ul>
+                <li v-for="detail in details">{{ detail }}</li>
+            </ul>
+            <div v-for="variant in variants" :key="variant.variantid">
+                <p @MouseOver="ChangeImage(variant.variantImage)"> {{ variant.variantcolor }} </p>
+            </div>
+            <ul>
+                <li v-for="size in sizes">{{ size }}</li>
+            </ul>
+
+            <div>
+                <button v-on:Click="KorzinkagaQosh">Korzinkaga qoshish</button>
+                <button v-on:click="removefromkorzinka">Korzinkadan olib tashlash!</button>
+
+                <p> Korzinka {{ korzinka }}</p>
+            </div>
+
+        </div>
+
+
+
+
+        <div class="product-image">
+            <img v-bind:src="productImg" width="500px" height="500px" alt="">
+        </div>
     </div>
+
+
+
+
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
