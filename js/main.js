@@ -1,11 +1,12 @@
 var app = new Vue({
     el: '#app',
     data: {
-        message: 'Hello World!',
+        message: 'Hello ',
+        toWhom: 'Umid',
         productName: 'Sock',
         productImg: 'https://smartshopper.ru/img/aHR0cHM6Ly9jZG4xLm96b25lLnJ1L211bHRpbWVkaWEvMTAzNjY5MjA3MC5qcGc=.jpg',
         href: '#',
-        inventory: 7,
+        inventory: 0,
         OnSale: true,
         details: ["10", "20", "30"],
         variants: [{
@@ -20,7 +21,8 @@ var app = new Vue({
             }
         ],
         sizes: ["37", "38", "40"],
-        korzinka: 5
+        korzinka: 5,
+        lineOver: { color: 'red', textDecoration: 'line-through' }
     },
     methods: {
         KorzinkagaQosh() {
@@ -31,6 +33,11 @@ var app = new Vue({
         },
         removefromkorzinka() {
             if (this.korzinka > 0) { this.korzinka -= 1; }
+        }
+    },
+    computed: {
+        hello() {
+            return this.message + '  ' + this.toWhom + '!!!';
         }
     }
 })

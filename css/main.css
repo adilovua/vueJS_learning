@@ -33,3 +33,13 @@
 p {
     font-size: larger;
 }
+
+.color-box {
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+}
+
+.lineOver {
+    color: antiquewhite;
+}
