@@ -20,10 +20,11 @@
             <p v-else-if="inventory<=10 && inventory>0">Almost sold out!</p>
             <p :style=" lineOver " v-else>Out of Stock {{lineOver}}</p>
             <span v-show='OnSale'>On Sale!</span>
+            <span v-show='!OnSale'>Out of stock!</span>
             <ul>
                 <li v-for="detail in details ">{{ detail }}</li>
             </ul>
-            <div v-for="variant in variants " class="color-box " :style="{ backgroundColor : variant.variantcolor } " @MouseOver="ChangeImage(variant.variantImage) ">
+            <div v-for="(variant, index) in variants " class="color-box " :style="{ backgroundColor : variant.variantcolor } " @MouseOver="ChangeImage(index) ">
 
             </div>
             <ul>
