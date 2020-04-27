@@ -12,22 +12,19 @@
 }
 
 .productImage {
-    float: left;
-    width: 100 px;
-    height: 100 px;
-    display: inline;
-    position: relative;
-    margin-left: 20px;
+    width: 50 px;
+    height: 50 px;
+    margin-right: 20px;
     border: solid;
+    float: left;
+    clear: both;
 }
 
 .productInfo {
-    float: left;
     width: 100 px;
     height: 100 px;
-    display: inline;
-    position: relative;
-    margin-right: 20px;
+    margin-left: 20px;
+    float: left;
 }
 
 p {

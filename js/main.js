@@ -1,6 +1,16 @@
 Vue.component('product', {
+    props: {
+        premium: {
+            type: Boolean,
+            required: true
+        }
+
+    },
     template: `
         <div>
+            <div class='productImage'>
+                <img v-bind:src="productImg " width="300px " height="300px " alt=" ">
+            </div>
             <div class='productInfo'>
             <h1>{{ hello }}</h1>
             <a :href="href">This is an anchorHref</a>
@@ -13,12 +23,16 @@ Vue.component('product', {
             <ul>
                 <li v-for="detail in details ">{{ detail }}</li>
             </ul>
+            <p> Shipping: {{ shipping }}</p>
             <div v-for="(variant, index) in variants " class="color-box " :style="{ backgroundColor : variant.variantcolor } " @mouseover="ChangeImage(index) ">
+            
 
             </div>
             <ul>
                 <li v-for="size in sizes ">{{ size }}</li>
             </ul>
+
+
 
             <div>
                 <button v-on:click="KorzinkagaQosh" :disabled="!OnSale ">Korzinkaga qoshish</button>
@@ -29,9 +43,7 @@ Vue.component('product', {
             </div>
 
             
-        <div class='productImage'>
-              <img v-bind:src="productImg " width="500px " height="500px " alt=" ">
-         </div>
+
 
     </div>
 
@@ -88,11 +100,32 @@ Vue.component('product', {
         },
         CanSale() {
             return "This " + this.productName + " is made by " + this.brand;
+        },
+        shipping() {
+            if (this.premium) { return "free" }
+            return "2.99"
         }
     }
 })
 
-var app = new Vue({
-    el: '#app'
+Vue.component('detail', {
+    props: {
+        detail: {
+            type: String
+        }
+    },
 
+    template: `
+        <div>
+            <p>Details: {{ detail }}</p>
+        <div>
+    `
+})
+
+var app = new Vue({
+    el: '#app',
+    data: {
+        premium: true,
+        detail: 'Silk'
+    }
 })
