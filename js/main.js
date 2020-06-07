@@ -32,14 +32,10 @@ Vue.component('product', {
                 <li v-for="size in sizes ">{{ size }}</li>
             </ul>
 
+            <button v-on:click="KorzinkagaQosh" :disabled="!OnSale ">Korzinkaga qoshish</button>
+            <button v-on:click="removefromkorzinka" :disabled="!OnSale ">Korzinkadan olib tashlash!</button>
 
 
-            <div>
-                <button v-on:click="KorzinkagaQosh" :disabled="!OnSale ">Korzinkaga qoshish</button>
-                <button v-on:click="removefromkorzinka" :disabled="!OnSale ">Korzinkadan olib tashlash!</button>
-
-                <p> Korzinka {{ korzinka }}</p>
-            </div>
             </div>
 
             
@@ -71,14 +67,13 @@ Vue.component('product', {
                 }
             ],
             sizes: ["37", "38", "40"],
-            korzinka: 5,
             lineOver: { color: "red", textDecoration: "line-through" },
             brandSale: true
         }
     },
     methods: {
         KorzinkagaQosh() {
-            this.korzinka += 1;
+            this.$emit('Korzinkaga-qoshish')
         },
         ChangeImage(index) {
             this.selectedVariant = index;
@@ -108,24 +103,19 @@ Vue.component('product', {
     }
 })
 
-Vue.component('detail', {
-    props: {
-        detail: {
-            type: String
-        }
-    },
 
-    template: `
-        <div>
-            <p>Details: {{ detail }}</p>
-        <div>
-    `
-})
 
 var app = new Vue({
     el: '#app',
     data: {
         premium: true,
-        detail: 'Silk'
+        detail: 'Silk',
+        korzinka: 0
+    },
+    methods: {
+        updateKorzinka() {
+            this.korzinka += 1;
+            console.log(this.korzinka)
+        }
     }
 })

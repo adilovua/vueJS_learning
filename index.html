@@ -13,14 +13,10 @@
     </div>
 
     <div id="app">
-        <product :premium="premium"></product>
-        <detail :detail="detail"></detail>
-
-
-
-
-
-
+        <div>
+            <p> Korzinka {{ korzinka }}</p>
+        </div>
+        <product :premium="premium" @Korzinkaga-qoshish="updateKorzinka"></product>
     </div>
 
 
