@@ -2,7 +2,7 @@ Vue.component('product', {
     props: {
         premium: {
             type: Boolean,
-            required: true
+            required: false
         }
 
     },
@@ -114,6 +114,7 @@ var app = new Vue({
     },
     methods: {
         updateKorzinka() {
+            alert('aaa');
             this.korzinka += 1;
             console.log(this.korzinka)
         }
